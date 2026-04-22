@@ -3,6 +3,8 @@ import { ArrowRight, Sparkles, Zap, Shield, Code2, Bot, CreditCard, Database } f
 import { Button } from '@/components/ui/button'
 import { SignInButton, SignedIn, SignedOut } from '@clerk/nextjs'
 
+const VERSION = 'v1.0.0'
+
 const features = [
   {
     icon: Bot,
@@ -202,6 +204,9 @@ export default function HomePage() {
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} AI SaaS Starter. All rights reserved.
           </p>
+          <span className="text-xs text-muted-foreground font-mono bg-muted px-2 py-1 rounded">
+            {VERSION}
+          </span>
         </div>
       </footer>
     </div>

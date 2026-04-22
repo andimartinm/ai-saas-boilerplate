@@ -2,6 +2,8 @@ import { UserButton } from '@clerk/nextjs'
 import Link from 'next/link'
 import { Sparkles, Bot, FileText, Image as ImageIcon } from 'lucide-react'
 
+const VERSION = 'v1.0.0'
+
 export default function DashboardPage() {
   const features = [
     {
@@ -28,7 +30,7 @@ export default function DashboardPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <header className="border-b">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
@@ -40,14 +42,14 @@ export default function DashboardPage() {
               Home
             </Link>
             <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground">
-  Pricing
-</Link>
+              Pricing
+            </Link>
             <UserButton afterSignOutUrl="/" />
           </div>
         </div>
       </header>
 
-      <main className="container py-8">
+      <main className="container py-8 flex-1">
         <div className="mb-8">
           <h1 className="text-3xl font-bold">Dashboard</h1>
           <p className="text-muted-foreground mt-2">Choose an AI tool to get started.</p>
@@ -92,6 +94,14 @@ export default function DashboardPage() {
           </div>
         </div>
       </main>
+
+      <footer className="py-4 px-4 border-t">
+        <div className="container flex items-center justify-end">
+          <span className="text-xs text-muted-foreground font-mono bg-muted px-2 py-1 rounded">
+            {VERSION}
+          </span>
+        </div>
+      </footer>
     </div>
   )
-} 
+}
