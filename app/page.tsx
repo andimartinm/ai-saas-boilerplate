@@ -3,13 +3,15 @@ import { ArrowRight, Sparkles, Zap, Shield, Code2, Bot, CreditCard, Database } f
 import { Button } from '@/components/ui/button'
 import { SignInButton, SignedIn, SignedOut } from '@clerk/nextjs'
 
-const VERSION = 'v1.0.0'
+const VERSION = 'v1.1.0'
+
+const LEMONADE_URL = 'https://himalaya.lemonsqueezy.com/checkout/buy/92957739-47af-4af8-bba0-b5000c1170d2'
 
 const features = [
   {
     icon: Bot,
     title: 'AI Ready',
-    description: 'OpenAI, Claude, and Replicate pre-configured. Start generating content in minutes.',
+    description: 'OpenAI, Claude, and Groq pre-configured. Start generating content in minutes.',
   },
   {
     icon: Shield,
@@ -41,7 +43,7 @@ const features = [
 const aiExamples = [
   {
     title: 'AI Chat',
-    description: 'Conversational AI powered by GPT-4 and Claude',
+    description: 'Conversational AI powered by Llama 3.1 and Groq',
   },
   {
     title: 'Text Generator',
@@ -49,7 +51,7 @@ const aiExamples = [
   },
   {
     title: 'Image Generator',
-    description: 'Create images with DALL-E and Stable Diffusion',
+    description: 'Create images with AI (placeholder ready)',
   },
 ]
 
@@ -64,17 +66,12 @@ export default function HomePage() {
             <span className="font-bold text-xl">AI SaaS Starter</span>
           </div>
           <nav className="flex items-center gap-4">
-            <SignedOut>
-              <SignInButton mode="modal">
-                <Button variant="ghost">Sign In</Button>
-              </SignInButton>
-              <Link href="/sign-up">
-                <Button>Get Started</Button>
-              </Link>
-            </SignedOut>
+            <a href={LEMONADE_URL} target="_blank" rel="noopener noreferrer">
+              <Button>Buy Now - $79</Button>
+            </a>
             <SignedIn>
               <Link href="/dashboard">
-                <Button>Dashboard</Button>
+                <Button variant="outline">Dashboard</Button>
               </Link>
             </SignedIn>
           </nav>
@@ -98,26 +95,20 @@ export default function HomePage() {
             payments, and database. Everything you need to launch your AI SaaS.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <SignedOut>
-              <Link href="/sign-up">
-                <Button size="lg" className="gap-2">
-                  Start Building <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-            </SignedOut>
-            <SignedIn>
-              <Link href="/dashboard">
-                <Button size="lg" className="gap-2">
-                  Go to Dashboard <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-            </SignedIn>
+            <a href={LEMONADE_URL} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="gap-2">
+                Buy Now - $79 <ArrowRight className="h-4 w-4" />
+              </Button>
+            </a>
             <Link href="#features">
               <Button size="lg" variant="outline">
-                Learn More
+                See Features
               </Button>
             </Link>
           </div>
+          <p className="text-sm text-muted-foreground mt-4">
+            ✅ Instant download • ✅ Full source code • ✅ Lifetime access
+          </p>
         </div>
       </section>
 
@@ -173,23 +164,13 @@ export default function HomePage() {
               Ready to Build Your AI App?
             </h2>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              Get started today and launch your AI SaaS in record time.
-              No configuration needed.
+              Get instant access to the full source code and start building today.
             </p>
-            <SignedOut>
-              <Link href="/sign-up">
-                <Button size="lg" variant="secondary" className="gap-2">
-                  Get Started Free <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-            </SignedOut>
-            <SignedIn>
-              <Link href="/dashboard">
-                <Button size="lg" variant="secondary" className="gap-2">
-                  Go to Dashboard <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-            </SignedIn>
+            <a href={LEMONADE_URL} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="secondary" className="gap-2">
+                Get Instant Access - $79 <ArrowRight className="h-4 w-4" />
+              </Button>
+            </a>
           </div>
         </div>
       </section>
